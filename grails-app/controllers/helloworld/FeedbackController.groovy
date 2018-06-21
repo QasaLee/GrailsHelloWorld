@@ -10,10 +10,11 @@ class FeedbackController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-    def index(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        respond Feedback.list(params), model:[feedbackInstanceCount: Feedback.count()]
-    }
+    def scaffold = Feedback
+//    def index(Integer max) {
+//        params.max = Math.min(max ?: 10, 100)
+//        respond Feedback.list(params), model:[feedbackInstanceCount: Feedback.count()]
+//    }
 
     def show(Feedback feedbackInstance) {
         respond feedbackInstance
